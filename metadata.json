@@ -1,0 +1,8 @@
+{
+  "name": "Boda Boda Connect Kenya",
+  "description": "An all-in-one platform for Kenyan motorbike riders to connect, access vital information, and get assistance. Features include a community forum, information hub on insurance and security, and a voice assistant for hands-free help.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

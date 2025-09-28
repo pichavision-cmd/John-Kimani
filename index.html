@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boda Boda Connect Kenya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-red': '#E53E3E',
+              'brand-green': '#48BB78',
+              'brand-blue': '#4299E1',
+              'brand-yellow': '#F6E05E',
+              'brand-white': '#F7FAFC',
+            },
+            animation: {
+              'slide-in': 'slide-in 0.5s ease-out forwards',
+              'slide-down': 'slide-down 0.5s ease-out forwards',
+            },
+            keyframes: {
+              'slide-in': {
+                'from': { transform: 'translateX(100%)', opacity: 0 },
+                'to': { transform: 'translateX(0)', opacity: 1 },
+              },
+              'slide-down': {
+                'from': { transform: 'translateY(-100%)', opacity: 0 },
+                'to': { transform: 'translateY(0)', opacity: 1 },
+              },
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      .chip {
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid #2a2b31;
+        background: #111218;
+        color: #e9eaee;
+        font-size: 12px;
+        font-weight: bold;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      .chip.on {
+        border-color: #284a2f;
+        background: #0f2216;
+        color: #48BB78; /* brand-green */
+      }
+      .chip.off {
+        border-color: #3a2a2a;
+        background: #221010;
+        color: #E53E3E; /* brand-red */
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+        "react/": "https://aistudiocdn.com/react@^19.1.1/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+      }
+    }
+    </script>
+</head>
+<body class="bg-slate-900">
+    <div id="root"></div>
+    <div id="toast" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#111218;border:1px solid #262732;color:#e9eaee;padding:10px 14px;border-radius:10px;font-size:14px;display:none;z-index:999;"></div>
+    <script type="module" src="index.tsx"></script>
+    <script>
+      function showToast(msg){
+        const t = document.getElementById('toast');
+        if(!t) return;
+        t.textContent = msg;
+        t.style.display = 'block';
+        setTimeout(()=>{ t.style.display='none'; }, 2000);
+      }
+    </script>
+</body>
+</html>
